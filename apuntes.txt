@@ -40,6 +40,7 @@ Si son de tipo:
 0x0000000000400d06
 le borramos todo hasta que quede los 6 ultimos digitos.
 
+Crackme0:
 en: 
    0x08048781 <+77>:  mov    DWORD PTR [esp+0x4],0x804894b #<-- en concreto a 0x804894b q contiene el password
 
@@ -55,7 +56,7 @@ vemos lo que contiene:
    0x0804878d <+89>:	mov    DWORD PTR [esp],eax # en modo intel eax se copia en esp
    0x08048790 <+92>:	call   0x8048670 <strcmp@plt> #<-- if user input != al password
    0x08048795 <+97>:	test   eax,eax #<-- aqui se hace la comprobacion
-   0x08048797 <+99>:	jne    0x80487bf <main+139> #<-- saltar si no es igual
+   0x08048797 <+99>:	jne    0x80487bf <main+139> #<-- saltar si no es igual, tambien podriamos parchear aqui cambiano a je
 
 salta a 0x080487bf
    0x080487bf <+139>:	mov    DWORD PTR [esp+0x4],0x8048972
