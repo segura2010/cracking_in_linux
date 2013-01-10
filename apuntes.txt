@@ -1,0 +1,65 @@
+gdb ejecutable
+
+set disassembly-flavor intel #<-- con esto he conseguido ver las
+variables normales: sin ser todo registros %algo
+
+disas main # desensabla desde el main
+
+#break main Set a breakpoint at the entry point to main
+
+b* direccion # <-- creamos un break point
+r # o run ejecuta desde el breakpoint
+n # es next ejecuta desde el ultimo breakpoint
+
+info break # vemos los breakpoints que tenemos
+
+x/2x $esp # a donde apunta esp
+x/s direccion # muestra el contenido de esa ruta, si es un string pues
+un string.
+
+[ esto no se si sera antiguo o no lo entiendo bien:
+entry point # nos dice donde empezar a desensamblar
+080481c0 #<-- se lo restamos y nos da 1c0 en hexadecimal
+08048000 # <-- direccion base q se usa siempre en linux ]
+
+Que no sean jnp, que son saltos incondicionales.
+
+En ASM, los parámetros de las funciones se pasan moviendo las
+direcciones de estos a la pila, y luego ejecutando el call.
+En ESP estará el primer parámetro y en ESP+4 estará el segundo
+parámetro (así consecutivamente).
+En linux se usa el ASM AT&T osea, que :” mov %eax, %ebx ” copia %eax
+en %ebx y no al revés.
+
+Con el Hte en modo elf/image las direcciones de la izquierda si
+cohinciden con las de gdb y "objdump -d -M intel crackme".
+si son tipo:
+400a60 solo hay q agregarle 0x0 delante osea 0x0400a60 y hacemos un
+GOTO (f5) no un search.
+Si son de tipo:
+0x0000000000400d06
+le borramos todo hasta que quede los 6 ultimos digitos.
+
+en: 
+   0x08048781 <+77>:  mov    DWORD PTR [esp+0x4],0x804894b #<-- en concreto a 0x804894b q contiene el password
+
+para ver el password en gdb ponemos: 
+(gdb) x/s 0x804894b
+
+   0x08048789 <+85>:	lea    eax,[esp+0x1a] #<-- esp+0x1a contiene lo q escribe el usuario
+
+vemos lo que contiene:
+(gdb) x/s $esp+0x1a 
+0xbffff1ba:	 "jojojo"
+
+   0x0804878d <+89>:	mov    DWORD PTR [esp],eax # en modo intel eax se copia en esp
+   0x08048790 <+92>:	call   0x8048670 <strcmp@plt> #<-- if user input != al password
+   0x08048795 <+97>:	test   eax,eax #<-- aqui se hace la comprobacion
+   0x08048797 <+99>:	jne    0x80487bf <main+139> #<-- saltar si no es igual
+
+salta a 0x080487bf
+   0x080487bf <+139>:	mov    DWORD PTR [esp+0x4],0x8048972
+
+que contiene:
+(gdb) x/s 0x8048972
+0x8048972:	 "Pues esa no es la contrasenia"
