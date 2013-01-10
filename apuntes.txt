@@ -36,8 +36,8 @@ cohinciden con las de gdb y "objdump -d -M intel crackme".
 si son tipo:
 400a60 solo hay q agregarle 0x0 delante osea 0x0400a60 y hacemos un
 GOTO (f5) no un search.
-Si son de tipo:
-0x0000000000400d06
+Si son muy largas de tipo (seran tan largas si usamos arquitecturas de 64bits):
+0x0000000000400d06 
 le borramos todo hasta que quede los 6 ultimos digitos.
 
 Crackme0:
