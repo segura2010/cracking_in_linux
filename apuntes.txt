@@ -1,3 +1,6 @@
+Tanto el crackme0 como el crackme1 con "string ejecutable" aparecen los passwords, por que no estan muy currados.
+
+
 gdb ejecutable
 
 set disassembly-flavor intel #<-- con esto he conseguido ver las
