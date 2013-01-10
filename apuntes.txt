@@ -50,7 +50,7 @@ en:
 para ver el password en gdb ponemos: 
 (gdb) x/s 0x804894b
 
-   0x08048789 <+85>:	lea    eax,[esp+0x1a] #<-- esp+0x1a contiene lo q escribe el usuario
+   0x08048789 <+85>:	lea    eax,[esp+0x1a] #<-- "esp+0x1a" contiene lo q escribe el usuario
 
 vemos lo que contiene:
 (gdb) x/s $esp+0x1a 
