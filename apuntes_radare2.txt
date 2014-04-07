@@ -1,0 +1,93 @@
+VER STRINGS:
+strings -t x programa (nos muestra los strings y los 3 ultimos digitos de la direccion en hexadecimal de donde se encuentra)
+
+CONVERTIR DE HEX A STRING IVICEVERSA:
+rax2 -S hola (de string a hexadecimal)
+rax2 -s 686f6c61 (de hexadecimal a string)
+
+Si editamos un string lo ideal es que sea de la misma longitud de chars (espacios en blanco valen tambien)
+Si es de mayor longitud se pueden colar otros strings teniendo un comportamiento extraño. Y si es menor 
+se mezclara el nuevo string con el viejo string.  
+
+Si por ejemplo el string es www.blender.org y vamos a reemplazarlo por www.google.es que es menor sobrarian 2 char.
+Podemos poner 00 para que no exista caracteres sobrantes. 
+
+EJECUCION:
+radare2 -d programa (entramos en modo debugger solo lectura)
+radare2 -w programa (entramos en modo escritura)
+
+para ir al principio de todo el archivo: 
+s 0
+
+para ir a un lugar:
+s 0x00400d04
+
+EDITAR:
+luego para editarlo (entramos en modo edicion: radare2 -w programa):
+si esta en jz (74 tambien conocido como je), lo podemos poner en jnz (75 tambien conocido como jne):
+primero vamos a la linea en concreto:
+s 0x00400d04 
+y luego:
+wx 75
+
+#otro ejemplo esta vez con wa A MI PERSONALMENTE ME DA VIOLACION DE SEGMENTO (write assembly):
+#vamos a su sitio:
+#s  0x00400d04
+#vemos el contenido:
+#[0x00400d04]> pd 1
+#        ,=< 0x00400d04    741e         jz 0x400d24
+#editamos:
+#[0x00400d04]> wa jnz 0x400d24
+#Written 6 bytes ( jnz 0x400d24)=wx 0f851a000000
+#volvemos a ver el contenido:
+#[0x00400d04]> pd 1
+#        ,=< 0x00400d04    0f851a000000 jnz 0x400d24
+#con wao? vemos las posibilidades
+
+INFORMACION:
+con la i podemos ver informacion del programa
+
+AYUDA:
+usamos ? para ver la ayuda o s?, w?, etc... para ver las ayudas de opciones en concreto... 
+
+FLAGS:
+con fs vemos los flags 
+y con fs strings seleccionamos el flag strings
+y con f vemos los strings
+
+DESENSAMBLADO:
+con pd vemos el codigo desensamblado
+pd 10 muestra solo las proximas 10 lineas desde donde estemos
+con V vemos en modo visual y dentro de modo visual con la p podemos ir viendo en diferentes modos
+
+MAIN ENSAMBLADOR:
+para ver el desensamblado en el main:
+pdf @ sym.main
+
+si estuviera stripeado ( Invalid address (sym.main) ) puedes probar con:
+pdf @ main
+
+para saber si esta estripeado prueba con i y veras un: strip   true
+
+tambien admite tuberias con less y grep etc :D
+pdf @ sym.main | grep -i stringabuscar
+
+HTE:
+(para instalar hte en debian aptitude install ht)
+con el hte podemos editar viendo las direcciones de pdf @ sym.main en modo Elf/image
+Tambien en hte en modo Elf/image podemos hacer un Got To y escribimos main y nos lleva al main. 
+
+en hte Podemos buscar el string de modo insensitive en modo Elf/image y seleccionar la referencia (xref y luego pulsamos enter) y nos llevara a su lugar :D
+
+
+ENSAMBLADOR:
+JZ (JE) = 74
+JNE = 75
+
+
+DEBUGEO:
+do reabrir el programa
+dc continuar con la ejecucion
+db sym.main        add breakpoint into sym.main
+db 0x804800        add breakpoint
+db -0x804800       remove breakpoint
