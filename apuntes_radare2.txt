@@ -83,7 +83,7 @@ en hte Podemos buscar el string de modo insensitive en modo Elf/image y seleccio
 ENSAMBLADOR:
 JZ (JE) = 74
 JNZ (JNE) = 75
-
+NOP = 90
 
 DEBUGEO:
 do reabrir el programa
