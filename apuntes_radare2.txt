@@ -3,6 +3,9 @@ strings -t x programa (nos muestra los strings y los 3 ultimos digitos de la dir
 tambien podemos usar: 
 rabin2 -z crackme
 
+y para ver toda la info:
+rabin2 -g crackme
+
 CONVERTIR DE HEX A STRING IVICEVERSA:
 rax2 -S hola (de string a hexadecimal)
 rax2 -s 686f6c61 (de hexadecimal a string)
