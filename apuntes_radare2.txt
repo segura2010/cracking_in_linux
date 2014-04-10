@@ -1,5 +1,7 @@
 VER STRINGS:
 strings -t x programa (nos muestra los strings y los 3 ultimos digitos de la direccion en hexadecimal de donde se encuentra)
+tambien podemos usar: 
+rabin2 -z crackme
 
 CONVERTIR DE HEX A STRING IVICEVERSA:
 rax2 -S hola (de string a hexadecimal)
