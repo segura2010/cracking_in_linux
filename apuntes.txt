@@ -67,3 +67,7 @@ salta a 0x080487bf
 que contiene:
 (gdb) x/s 0x8048972
 0x8048972:	 "Pues esa no es la contrasenia"
+
+
+cmp y test con las comprobaciones [normalmente despues de test esta el salto mágico ;) ] y
+call ejecuta lo que tiene mas arriba creo. 
