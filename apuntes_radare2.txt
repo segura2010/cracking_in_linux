@@ -11,6 +11,7 @@ radiff2 -g main crackme1 crackme2 > a &
 radiff2 -g main crackme2 crackme1 > b &
 xdot a
 xdot b
+Los bloques marcados en amarillo son los que cambiaron.
 
 VER STRINGS:
 strings -t x programa (nos muestra los strings y los 3 ultimos digitos de la direccion en hexadecimal de donde se encuentra)
@@ -110,3 +111,6 @@ dc continuar con la ejecucion
 db sym.main        add breakpoint into sym.main
 db 0x804800        add breakpoint
 db -0x804800       remove breakpoint
+
+
+Tambien hay un software llamado bokken pero en mi debian testing ahora mismo esta fuera de repos (tiene problemas, habrá que esperar). 
