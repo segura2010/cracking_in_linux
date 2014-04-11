@@ -13,4 +13,5 @@ g++ crackme1.cpp -o crackme1
 Compilar para arquitectura de 32bits en debian: 
 
 sudo aptitude install g++-multilib gcc-multilib
+
 g++ -m32 crackme0.cpp -o crackme0
