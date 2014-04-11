@@ -1,3 +1,17 @@
+PARA VER EL ESQUEMA VISUAL:
+sudo aptitude install xdot
+
+comparamos el crackme con el mismo para solor ver el grafico de cracme:
+radiff2 -g main crackme.bin crackme.bin > a &
+y luego vemos el grafico
+xdot a
+
+si quisieramos comparar dos binarios:
+radiff2 -g main crackme1 crackme2 > a &
+radiff2 -g main crackme2 crackme1 > b &
+xdot a
+xdot b
+
 VER STRINGS:
 strings -t x programa (nos muestra los strings y los 3 ultimos digitos de la direccion en hexadecimal de donde se encuentra)
 tambien podemos usar: 
