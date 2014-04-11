@@ -104,6 +104,7 @@ ENSAMBLADOR:
 JZ (JE) = 74
 JNZ (JNE) = 75
 NOP = 90
+JMP = EB
 
 DEBUGEO:
 do reabrir el programa
