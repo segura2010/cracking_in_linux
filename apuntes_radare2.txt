@@ -106,6 +106,18 @@ JNZ (JNE) = 75
 NOP = 90
 JMP = EB
 
+saltos:
+	jmp		jump				EB		
+	je	==	jump if equal			74
+	jne	!=	jump if not equal		75
+	jg	>	jump if greater than		7F
+	jge	>=	jump if greater than or equal	7D
+	jl	<	jump if less than		7C
+	jle	<=	jump if less than or equal	7E
+	jz	== 0	jump if it's equal to 0		75
+	jnz	!= 0	jump if it's not equal to 0	74
+
+
 DEBUGEO:
 do reabrir el programa
 dc continuar con la ejecucion
