@@ -127,3 +127,6 @@ db -0x804800       remove breakpoint
 
 
 Tambien hay un software llamado bokken pero en mi debian testing ahora mismo esta fuera de repos (tiene problemas, habrá que esperar). 
+
+rasm2 -a x86 'jmp 0x00400eb5'
+rasm2 -a x86 -b 64 'jmp 0x00400eb5'
