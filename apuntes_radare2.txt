@@ -158,6 +158,7 @@ pd 10
        |    0x00400ed8    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
 b3 + 2 = b5 + 1e = d3
 puedes hacer las sumas aqui http://es.ncalculators.com/digital-computation/hex-addition-calculadora.htm
+o en python hex(0xb3 + 2 + 0x1e)
 
 The first byte of a SHORT Jump is always EB and the 
 second is a relative offset from 00h to 7Fh for Forward jumps, and 
