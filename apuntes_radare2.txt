@@ -139,6 +139,8 @@ offset relativo de rel8 eip short jmp:
 primer digito del    [0]  al  [7]
 segundo digito de la [a] a la [f]
 
+direccionpropia   EB 03	 JMP  0105 direccionpropia + 2 + eloffsetrelativoindicadoantes = lanuevadireccion0105
+
 The first byte of a SHORT Jump is always EB and the 
 second is a relative offset from 00h to 7Fh for Forward jumps, and 
 from 80h to FFh for Reverse (or Backward) jumps.
