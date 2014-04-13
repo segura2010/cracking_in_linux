@@ -157,3 +157,44 @@ ejemplos:
         |   0x00400ebf    e82cfdffff   call sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
         |      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
         `-> 0x00400ec4    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+
+[0x00400eb3]> wx eb70        
+[0x00400eb3]> pd 40
+        ,=< 0x00400eb3    eb70         jmp 0x400f25
+        |   0x00400eb5    beb0124000   mov esi, str.Enhorabuena
+        |   0x00400eba    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+        |   0x00400ebf    e82cfdffff   call sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |   0x00400ec4    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+        |   0x00400ec9    4889c7       mov rdi, rax
+        |   0x00400ecc    e8affdffff   call sym.imp._ZNSolsEPFRSoS_E
+        |      0x00400c80() ; sym.imp._ZNSolsEPFRSoS_E
+       ,==< 0x00400ed1    eb1c         jmp 0x400eef
+       ||   0x00400ed3    bebd124000   mov esi, str.No
+       ||   0x00400ed8    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+       ||   0x00400edd    e80efdffff   call sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+       ||      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+       ||   0x00400ee2    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+       ||   0x00400ee7    4889c7       mov rdi, rax
+       ||   0x00400eea    e891fdffff   call sym.imp._ZNSolsEPFRSoS_E
+       ||      0x00400c80() ; sym.imp._ZNSolsEPFRSoS_E
+       `--> 0x00400eef    488d45a0     lea rax, [rbp-0x60]
+        |   0x00400ef3    4889c7       mov rdi, rax
+        |   0x00400ef6    e815fdffff   call sym.imp._ZNSsD1Ev
+        |      0x00400c10() ; sym.imp._ZNSsD1Ev
+        |   0x00400efb    488d45b0     lea rax, [rbp-0x50]
+        |   0x00400eff    4889c7       mov rdi, rax
+        |   0x00400f02    e809fdffff   call sym.imp._ZNSsD1Ev
+        |      0x00400c10() ; sym.imp._ZNSsD1Ev
+        |   0x00400f07    b800000000   mov eax, 0x0
+      ,===< 0x00400f0c    eb74         jmp 0x400f82
+      | |   0x00400f0e    4889c3       mov rbx, rax
+      | |   0x00400f11    488d45bf     lea rax, [rbp-0x41]
+      | |   0x00400f15    4889c7       mov rdi, rax
+      | |   0x00400f18    e843fdffff   call sym.imp._ZNSaIcED1Ev
+      | |      0x00400c60() ; sym.imp._ZNSaIcED1Ev
+      | |   0x00400f1d    4889d8       mov rax, rbx
+     ,====< 0x00400f20    eb58         jmp 0x400f7a
+     || |   0x00400f22    4889c3       mov rbx, rax
+     || `-> 0x00400f25    488d45e0     lea rax, [rbp-0x20]
+
