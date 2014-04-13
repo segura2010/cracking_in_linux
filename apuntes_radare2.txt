@@ -160,6 +160,11 @@ b3 + 2 = b5 + 1e = d3
 puedes hacer las sumas aqui http://es.ncalculators.com/digital-computation/hex-addition-calculadora.htm
 o en python hex(0xb3 + 2 + 0x1e)
 
+GENERADOR DE OFFSETS PARA JMP SHORT en python by zebus3d:
+O tambien puedo usar mi propio generador de offsets que me he hecho :DDDDD
+https://github.com/zebus3d/cracking_in_linux/blob/master/get_relative_offset.py
+
+
 The first byte of a SHORT Jump is always EB and the 
 second is a relative offset from 00h to 7Fh for Forward jumps, and 
 from 80h to FFh for Reverse (or Backward) jumps.
