@@ -128,5 +128,32 @@ db -0x804800       remove breakpoint
 
 Tambien hay un software llamado bokken pero en mi debian testing ahora mismo esta fuera de repos (tiene problemas, habrá que esperar). 
 
+para saltos E9 long jumps:
+traducir ordenes de asm a hexadecimal:
 rasm2 -a x86 'jmp 0x00400eb5'
 rasm2 -a x86 -b 64 'jmp 0x00400eb5'
+
+short jumps son EB seguido del offset relativo:
+eb 05 (va del 0 -> 8 creo y de la a -> f)
+ejemplos:
+
+[0x00400eb3]> wx eb00
+[0x00400eb3]> pd 3
+        ,=< 0x00400eb3    eb00         jmp 0x400eb5
+        `-> 0x00400eb5    beb0124000   mov esi, str.Enhorabuena
+            0x00400eba    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+
+[0x00400eb3]> wx eb05
+[0x00400eb3]> pd 3
+        ,=< 0x00400eb3    eb05         jmp 0x400eba
+        |   0x00400eb5    beb0124000   mov esi, str.Enhorabuena
+        `-> 0x00400eba    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+
+[0x00400eb3]> wx eb0f
+[0x00400eb3]> pd 6
+        ,=< 0x00400eb3    eb0f         jmp 0x400ec4
+        |   0x00400eb5    beb0124000   mov esi, str.Enhorabuena
+        |   0x00400eba    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+        |   0x00400ebf    e82cfdffff   call sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        `-> 0x00400ec4    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
