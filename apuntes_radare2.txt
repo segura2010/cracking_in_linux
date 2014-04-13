@@ -133,8 +133,14 @@ traducir ordenes de asm a hexadecimal:
 rasm2 -a x86 'jmp 0x00400eb5'
 rasm2 -a x86 -b 64 'jmp 0x00400eb5'
 
+Se considera short jump cuando es inferior a 0x80
+
+The first byte of a SHORT Jump is always EB and the 
+second is a relative offset from 00h to 7Fh for Forward jumps, and 
+from 80h to FFh for Reverse (or Backward) jumps.
+
+mas informacion -> http://thestarman.pcministry.com/asm/2bytejumps.htm
 short jumps son EB seguido del offset relativo:
-eb 05 (va del 0 -> 8 creo y de la a -> f)
 ejemplos:
 
 [0x00400eb3]> wx eb00
