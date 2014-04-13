@@ -53,4 +53,4 @@ else:
     print '(ayuda) o modo de empleo:'
     print './get_relative_offset.py direccion_origen direccion_destino'
     print 'ejemplo:'
-    print './get_relative_offset.py 0x00400eb3 0x00400ed3'
+    print './get_relative_offset.py 0x00400eb3 0x00400ef3'
