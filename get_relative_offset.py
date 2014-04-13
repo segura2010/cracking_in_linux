@@ -47,7 +47,7 @@ if len(sys.argv) > 1:
             print 'El offset correcto a usar seria: ' + i[-2:]
             apt.append(susodicho)
 else:
-    print 'Este escrip solicita 2 direcciones una la de origen y otra la de destino para hacer un jmp short'
+    print 'Este escript solicita 2 direcciones, una la de origen y otra la de destino para hacer un jmp short'
     print 'Se considera short a un jump cuando es inferior a 0x80'
     print ''
     print '(ayuda) o modo de empleo:'
