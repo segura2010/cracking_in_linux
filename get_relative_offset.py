@@ -36,10 +36,19 @@ if len(sys.argv) > 1:
             n += 1
         if n == 8:
             e = True
-            
-    for i in numeros:
-        ofset = '0x0' + str(i)
+    
+    i = 0
+    si = 0
+    e = False
+    while e != True:
+        ofset = '0x' + str(si) + str(i)
         aoffsets.append(ofset)
+        if i == 7:
+            i = 0
+            si += 1
+        if si == 8:
+            e = True
+        i += 1
         
     apt = []
     for i in aoffsets:
