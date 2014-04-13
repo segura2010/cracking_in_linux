@@ -139,7 +139,24 @@ offset relativo de rel8 eip short jmp:
 primer digito del    [0]  al  [7]
 segundo digito de la [a] a la [f]
 
-direccionpropia   EB 03	 JMP  0105 direccionpropia + 2 + eloffsetrelativoindicadoantes = lanuevadireccion0105
+formula:
+direccion_propia + 2 + el_offset_relativo = lan_ueva_direccion
+osea ejemplo:
+
+pd 10
+        ,=< 0x00400eb3    741e         jz 0x400ed3
+        |   0x00400eb5    beb0124000   mov esi, str.Enhorabuena
+        |   0x00400eba    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+        |   0x00400ebf    e82cfdffff   call sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |   0x00400ec4    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+        |   0x00400ec9    4889c7       mov rdi, rax
+        |   0x00400ecc    e8affdffff   call sym.imp._ZNSolsEPFRSoS_E
+        |      0x00400c80() ; sym.imp._ZNSolsEPFRSoS_E
+       ,==< 0x00400ed1    eb1c         jmp 0x400eef
+       |`-> 0x00400ed3    bebd124000   mov esi, str.No
+       |    0x00400ed8    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+b3 + 2 = b5 + 1e = d3
 
 The first byte of a SHORT Jump is always EB and the 
 second is a relative offset from 00h to 7Fh for Forward jumps, and 
