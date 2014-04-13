@@ -36,11 +36,14 @@ if len(sys.argv) > 1:
             n += 1
         if n == 8:
             e = True
+            
+    for i in numeros:
+        ofset = '0x0' + str(i)
+        aoffsets.append(ofset)
         
     apt = []
     for i in aoffsets:
         #print i
-        #print 'hex ' + op1 + '+ 2 +' + i
         susodicho = hex( int(op1, 16) + 2 + int(i, 16) )
         if susodicho[-2:] == apuntando[-2:]:
             print 'Para hacer un jmp short desde el origen: ' + diractual + ' hasta la direccion destino: ' + apuntando
