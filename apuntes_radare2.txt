@@ -158,6 +158,20 @@ ejemplos:
         |      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
         `-> 0x00400ec4    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
 
+[0x00400eb3]> wx eb1e
+[0x00400eb3]> pd 9
+        ,=< 0x00400eb3    eb1e         jmp 0x400ed3
+        |   0x00400eb5    beb0124000   mov esi, str.Enhorabuena
+        |   0x00400eba    bf201a6000   mov edi, sym._ZSt4coutGLIBCXX_3.4
+        |   0x00400ebf    e82cfdffff   call sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |      0x00400bf0() ; sym.imp._ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc
+        |   0x00400ec4    be900c4000   mov esi, sym.imp._ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_
+        |   0x00400ec9    4889c7       mov rdi, rax
+        |   0x00400ecc    e8affdffff   call sym.imp._ZNSolsEPFRSoS_E
+        |      0x00400c80() ; sym.imp._ZNSolsEPFRSoS_E
+       ,==< 0x00400ed1    eb1c         jmp 0x400eef
+       |`-> 0x00400ed3    bebd124000   mov esi, str.No
+
 [0x00400eb3]> wx eb70        
 [0x00400eb3]> pd 40
         ,=< 0x00400eb3    eb70         jmp 0x400f25
