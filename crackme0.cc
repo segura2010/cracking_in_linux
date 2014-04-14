@@ -10,9 +10,9 @@ cout << "Cual es la contrasenia ?? " << endl;
 cin >> palabra;
 
 if (!strcmp(palabra,"alfffamola")){
-    cout<< "Yeeeeahh!! Tu tambien molas" <<endl;
+    cout<< "Enhorabuena el password es el correcto!!" <<endl;
 }
 else
-    cout<< "Pues esa no es la contrasenia" <<endl;
+    cout<< "Password incorrecto!!" <<endl;
 return 0;
 }
