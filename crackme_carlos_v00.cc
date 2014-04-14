@@ -15,10 +15,10 @@ int main() {
     cin >> entrada;
 
     if ( not comprobacion(entrada, invertir(chars))) {
-        cout << "Enhorabuena!" << endl;
+        cout << "Enhorabuena el password es el correcto!!" << endl;
     }
     else {
-        cout << "No" << endl;
+        cout << "Password incorrecto!!" << endl;
     }
 }
 
