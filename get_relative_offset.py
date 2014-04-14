@@ -25,7 +25,7 @@ if len(sys.argv) > 1:
     l = 0
     n = 0
     e = False
-    aoffsets.append('0x00')
+    #aoffsets.append('0x00')
     while e != True:
         ofset = '0x' + str(n) + str(letras[l])
         aoffsets.append(ofset)
