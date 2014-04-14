@@ -11,9 +11,9 @@ int main()
     cin >> input;
 
     if(pass == input)
-        cout << "Aqui se ejecuta el juego :-) " << endl;
+        cout << "Enhorabuena el password es el correcto!!" << endl;
     else
-        cout << "UNREGISTERD!!" << endl;
+        cout << "Password incorrecto!!" << endl;
 
     return 0;
 }
