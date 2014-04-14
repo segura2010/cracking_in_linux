@@ -4,7 +4,7 @@ sudo aptitude install xdot
 comparamos el crackme con el mismo para solor ver el grafico de cracme:
 radiff2 -g main crackme.bin crackme.bin > /tmp/a &
 y luego vemos el grafico
-xdot a
+xdot /tmp/a
 
 si quisieramos comparar dos binarios:
 radiff2 -g main crackme1 crackme2 > /tmp/a &
