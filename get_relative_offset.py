@@ -55,7 +55,8 @@ if len(sys.argv) > 1:
         #print i
         susodicho = hex( int(op1, 16) + 2 + int(i, 16) )
         if susodicho[-2:] == apuntando[-2:]:
-            print 'Para hacer un jmp short desde el origen: ' + diractual + ' hasta la direccion destino: ' + apuntando
+            print 'Para hacer un jmp desde el origen: ' + diractual + ' hasta la direccion destino: ' + apuntando
+            print 'Si el offset es mayor de 80 entonces ya no es un short jump (EB) sino un long jump (E9)'
             print 'El offset correcto a usar seria: ' + i[-2:]
             apt.append(susodicho)
 else:
