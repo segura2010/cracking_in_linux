@@ -17,7 +17,7 @@ if len(sys.argv) > 1:
 
     op1 = '0x' + hexactual
     
-    numeros= [0,1,2,3,4,5,6,7]
+    numeros= [0,1,2,3,4,5,6,7,8,9]
     letras=['a','b','c','d','e','f']
 
     aoffsets = []
@@ -34,7 +34,7 @@ if len(sys.argv) > 1:
         if l == 6:
             l = 0
             n += 1
-        if n == 8:
+        if n == 10:
             e = True
     
     i = 0
@@ -43,10 +43,10 @@ if len(sys.argv) > 1:
     while e != True:
         ofset = '0x' + str(si) + str(i)
         aoffsets.append(ofset)
-        if i == 7:
+        if i == 9:
             i = 0
             si += 1
-        if si == 8:
+        if si == 10:
             e = True
         i += 1
         
