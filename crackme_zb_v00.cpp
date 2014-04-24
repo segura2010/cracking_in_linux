@@ -9,8 +9,6 @@ bool test(string); // comprobacion del pass
 // main:
 int main(){
     string m = "";
-    //string uinput = consulta();
-
     if ( test( consulta() ) ){
         m = msj(1);
     } else {
