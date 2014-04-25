@@ -4,17 +4,23 @@ using namespace std;
 // prototipado:
 string consulta(void); // consulta del pass al usuario
 string msj(int); // mensajes de respuesta
+void print(string); // imprimiendo respuestas
+void print2(string); // imprimiendo algo
+void print3(string); // imprimiendo algo
 bool test(string); // comprobacion del pass
 
 // main:
 int main(){
     string m = "";
+    //string uinput = consulta();
+    
     if ( test( consulta() ) ){
         m = msj(1);
     } else {
         m = msj(2);
     }
-    cout << m << endl;
+
+    print(m);
     return 0;
 }
 
@@ -36,9 +42,23 @@ string msj(int i){
     }
 }
 
+void print(string m){
+    cout << m << endl;
+}
+
+void print2(){
+    cout << "Me estan imprimiendo desde la funcion2" << endl;
+}
+
+void print3(string m){
+    cout << "Me estan imprimiendo desde la funcion3" << endl;
+}
+
 bool test(string i){
     string sc = "superpass";
     if ( i == sc ){
         return true;
+    } else {
+        return false;
     }
 }
