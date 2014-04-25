@@ -16,7 +16,8 @@ int main(){
     
     if ( test( consulta() ) ){
         m = msj(1);
-    } else {
+    } 
+    else {
         m = msj(2);
     }
 
@@ -36,7 +37,8 @@ string msj(int i){
     if ( i == 1 ){
         string m = "Correcto!!";
         return m;
-    } else {
+    } 
+    else {
         string m = "Incorrecto!!";
         return m;
     }
@@ -58,7 +60,8 @@ bool test(string i){
     string sc = "superpass";
     if ( i == sc ){
         return true;
-    } else {
+    } 
+    else {
         return false;
     }
 }
