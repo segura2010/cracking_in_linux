@@ -175,8 +175,6 @@ mas informacion -> http://thestarman.pcministry.com/asm/2bytejumps.htm
 short jumps son EB seguido del offset relativo:
 ejemplos:
 
-(Creo q) -> El segundo digito del offset relativo creo que se suma de 5 en 5 y cuando se llega a 10 se pasa a la 'a'
-
 [0x00400eb3]> wx eb00
 [0x00400eb3]> pd 3
         ,=< 0x00400eb3    eb00         jmp 0x400eb5
