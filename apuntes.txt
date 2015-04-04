@@ -1,5 +1,39 @@
 Tanto el crackme0 como el crackme1 con "string ejecutable" aparecen los passwords, por que no estan muy currados.
 
+[copy pasteado]
+Ahora ya estamos preparados, vamos a ejecutar gdb:
+$ gdb -q linux_crackme3
+
+La opción -q es solo para que no nos de toda la información de gdb (version, copyright, etc...) al
+inicio. De esta manera, quedara un promt tipo
+
+Ahora es el momento de configurar un poco gdb, para dejarlo de forma que nos sea mas cómodo
+trabajar con él. Mis opciones básicas son:
+gdb $ set disassembly-flavor intel
+
+Con esta orden, el desensamblado que nos muestre gdb será en formato
+Intel, como esto va a ser siempre se puede colocar en un archivo en nuestra carpeta de usuario 
+(home/usuario/) con el nombre .gdbinit
+
+(importante el punto al principio, pues es un archivo oculto) y no tendremos que
+colocarlo cada vez. 
+
+gdb$ display/5i $pc
+Esta orden va a hacer que nos muestre por donde vamos cada vez que ejecutemos una orden en gdb, en 
+concreto las siguientes 5 instrucciones en ensamblador, pues $pc es una variable interna que indica la 
+siguiente instrucción que se va a ejecutar (igual que $eip ).
+
+Display
+es una orden que nos va a mostrar lo que queramos cada vez que se ejecute una orden,y como veremos es 
+muy útil y tiene muchas posibilidades. Se pueden poner todos los display que queramos, para manejarlos 
+primero debemos saber que número tienen, si colocamos la orden display sola, nos listara todos:
+gdb $ display
+1: x/5i $pc
+
+En este caso solo hay uno, si quisiéramos quitarlo, se usaría la orden:
+gdb $ undisplay 1
+[/copy pasteado]
+
 
 gdb ejecutable
 
